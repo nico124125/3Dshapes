@@ -24,6 +24,9 @@ class ThreeDShape:
     def surface_area(self):
         return None
 
+    def draw(self):
+        return None
+
 # Child Class cylinder #
 class cylinder(ThreeDShape):
     def __init__(self, radius, height, colour):
@@ -45,9 +48,13 @@ class cylinder(ThreeDShape):
 
     def volume(self):
         return 3.14159 * (self.radius ** 2) * self.height
-
+    
     def surface_area(self):
         return 2 * 3.14159 * self.radius * (self.radius + self.height)
+
+    def draw(self):
+        return f"Drawing a {self.colour} {self.type} with radius {self.radius} and height {self.height}"
+    
 # Child Class Octahedron #
 class Octahedron(ThreeDShape):
     def __init__(self, edge_length, colour):
@@ -71,6 +78,10 @@ class Octahedron(ThreeDShape):
 
     def surface_area(self):
         return 2 * (2 ** 0.5) * (self.edge_length ** 2)
+
+    def draw(self):
+        return f"Drawing a {self.colour} {self.type} with edge length {self.edge_length}"
+
 # Child Class Dodecahedron #
 class Dodecahedron(ThreeDShape):
     def __init__(self, edge_length, colour):
@@ -94,3 +105,6 @@ class Dodecahedron(ThreeDShape):
 
     def surface_area(self):
         return 3 * (25 + 10 * (5 ** 0.5)) * (self.edge_length ** 2)
+
+    def draw(self):
+        return f"Drawing a {self.colour} {self.type} with edge length {self.edge_length}"
