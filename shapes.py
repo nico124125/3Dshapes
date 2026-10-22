@@ -1,3 +1,4 @@
+import pyvista as pv
 # Parent Class for main 3d shape #
 class ThreeDShape:
     def __init__(self, type, colour):
@@ -53,7 +54,10 @@ class cylinder(ThreeDShape):
         return 2 * 3.14159 * self.radius * (self.radius + self.height)
 
     def draw(self):
-        return f"Drawing a {self.colour} {self.type} with radius {self.radius} and height {self.height}"
+        cyl = pv.Cylinder()
+        plotter = pv.Plotter()
+        plotter.add_mesh(cyl, color='turquoise')
+        plotter.show() 
     
 # Child Class Octahedron #
 class Octahedron(ThreeDShape):
@@ -80,7 +84,10 @@ class Octahedron(ThreeDShape):
         return 2 * (2 ** 0.5) * (self.edge_length ** 2)
 
     def draw(self):
-        return f"Drawing a {self.colour} {self.type} with edge length {self.edge_length}"
+        Octahedron = pv.Octahedron()
+        plotter = pv.Plotter()
+        plotter.add_mesh(Octahedron, color='turquoise')
+        plotter.show()
 
 # Child Class Dodecahedron #
 class Dodecahedron(ThreeDShape):
@@ -107,4 +114,6 @@ class Dodecahedron(ThreeDShape):
         return 3 * (25 + 10 * (5 ** 0.5)) * (self.edge_length ** 2)
 
     def draw(self):
-        return f"Drawing a {self.colour} {self.type} with edge length {self.edge_length}"
+        Dodecahedron = pv.Dodecahedron()
+        plotter = pv.Plotter()
+        plotter.add_mesh(Dodecahedron, color='turquoise')
