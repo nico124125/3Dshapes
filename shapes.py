@@ -114,6 +114,7 @@ class Dodecahedron(ThreeDShape):
         return 3 * (25 + 10 * (5 ** 0.5)) * (self.edge_length ** 2)
 
     def draw(self):
-        Dodecahedron = pv.Dodecahedron()
+        Dodecahedron = pv.Dodecahedron(radius=self.edge_length)
         plotter = pv.Plotter()
         plotter.add_mesh(Dodecahedron, color='turquoise')
+        plotter.show()
